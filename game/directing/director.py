@@ -1,4 +1,5 @@
 from game.shared.score import Score
+from game.casting.cast import Cast
 
 
 class Director:
@@ -21,6 +22,7 @@ class Director:
         self._keyboard_service = keyboard_service
         self._video_service = video_service
         self.score = Score()
+        self.cast = Cast()
 
         
     def start_game(self, cast):
@@ -66,8 +68,10 @@ class Director:
             if robot.get_position().equals(artifact.get_position()):
                 if artifact.get_id() == "add":
                     self.score.add_score()
+                    self.cast.remove_actor("artifacts",artifact)
                 else:
                     self.score.remove_score()
+                    self.cast.remove_actor("artifacts",artifact)
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
