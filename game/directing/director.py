@@ -1,5 +1,7 @@
+from turtle import pos
 from game.shared.score import Score
-from game.casting.cast import Cast
+from game.shared.point import Point
+
 
 
 class Director:
@@ -22,8 +24,6 @@ class Director:
         self._keyboard_service = keyboard_service
         self._video_service = video_service
         self.score = Score()
-        self.cast = Cast()
-
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -45,6 +45,8 @@ class Director:
             cast (Cast): The cast of actors.
         """
         robot = cast.get_first_actor("robots")
+        position = robot.get_position()
+        self._keyboard_service.set_bottom()
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)        
 
@@ -68,10 +70,10 @@ class Director:
             if robot.get_position().equals(artifact.get_position()):
                 if artifact.get_id() == "add":
                     self.score.add_score()
-                    self.cast.remove_actor("artifacts",artifact)
+                    artifact.set_position(Point(max_x, max_y))
                 else:
                     self.score.remove_score()
-                    self.cast.remove_actor("artifacts",artifact)
+                    artifact.set_position(Point(max_x, max_y))
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

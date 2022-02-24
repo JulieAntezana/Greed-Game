@@ -1,5 +1,6 @@
 import pyray
 from game.shared.point import Point
+from game.casting.actor import Actor
 
 
 class KeyboardService:
@@ -21,6 +22,7 @@ class KeyboardService:
         self._cell_size = cell_size
         self._proxy_x1 = 0
         self._proxy_x2 = 0
+        self._location = 0
 
     def get_direction(self):
         """Gets the selected direction based on the currently pressed keys.
@@ -44,12 +46,16 @@ class KeyboardService:
                 self._proxy_x2 = 0
         
         if pyray.is_key_down(pyray.KEY_UP):
-            dy = 0
+            dy = -1
         
         if pyray.is_key_down(pyray.KEY_DOWN):
-            dy = 0
+            while self._location < 550:
+                dy = 1
 
         direction = Point(dx, dy)
         direction = direction.scale(self._cell_size)
         
         return direction
+    
+    def set_bottom(self, location):
+        self._location = location
