@@ -5,11 +5,11 @@ Greed
 He who is not contented with what he has, would not be contented with what he would like to have.
 
 Socrates -
-Overview Greed is a game in which the player seeks to gather as many falling gems as possible. The game continues as long as the player wants more!
+Overview Greed is a game in which the Actor seeks to gather as many falling Artifacts as possible. The game continues as long as the Actor wants more!
 
 Rules Greed is played according to the following rules.
 
-Gems (*) and rocks (o) randomly appear and fall from the top of the screen. The player (#) can move left or right along the bottom of the screen. If the player touches a gem they earn a point. If the player touches a rock they lose a point. Gems and rocks are removed when the player touches them. The game continues until the player closes the window.
+Artifacts (*) and rocks (o) randomly appear and fall from the top of the screen. The Actor (#) can move left or right along the bottom of the screen. If the Actor touches a gem they earn a point. If the Actor touches a rock they lose a point. Artifacts and rocks are removed when the Actor touches them. The game continues until the Actor closes the window.
 
 Getting Started
 Make sure you have Python 3.8.0 or newer and Raylib Python CFFI 3.7 installed and running on your machine. You can install Raylib Python CFFI by opening a terminal and running the following command.
@@ -73,10 +73,10 @@ class Cast:
     Attributes:
         _actors (dict): A dictionary of actors
 
-class Player:
+class Actor:
     """A visible, moveable shape that participates in the game.
 
-    The responsibility of Player is to keep track of its appearance, position and velocity in 2d.
+    The responsibility of Actor is to keep track of its appearance, position and velocity in 2d.
     space.
 
     Attributes:
@@ -86,11 +86,11 @@ class Player:
         _position (Point): The screen coordinates.
         _velocity (Point): The speed and direction.
     """
-class Shapes:
-    A child to the parent class Player, are visible, randomly generated moving rock or gem shapes that move from the top of the screen to the bottom of the screen.  The responsibility of Shapes is to keep track of its appearance, position and velocity in 2d.
+class Artifacts:
+    A child to the parent class Actor, are visible, randomly generated moving rock or gem Artifacts that move from the top of the screen to the bottom of the screen.  The responsibility of Artifacts is to keep track of its appearance, position and velocity in 2d.
 
     Attributes:
-    Inherited from Player
+    Inherited from Actor
         _text (string): The text to display
         _font_size (int): The font size to use.
         _color (Color): The color of the text.
@@ -110,9 +110,9 @@ class VideoService:
         _debug (bool): whether or not to draw in debug mode.
 
 class KeyboardService:
-    Detects player input.
+    Detects Actor input.
 
-    The responsibility of a KeyboardService is to detect player key presses and translate them into a point representing a direction.
+    The responsibility of a KeyboardService is to detect Actor key presses and translate them into a point representing a direction.
 
     Attributes:
         cell_size (int): For scaling directional input to a grid.
