@@ -23,6 +23,8 @@ class KeyboardService:
         self._proxy_x1 = 0
         self._proxy_x2 = 0
         self._location = 0
+        self._proxy_y1 = 0
+        self._proxy_y2 = 0
 
     def get_direction(self):
         """Gets the selected direction based on the currently pressed keys.
@@ -46,12 +48,20 @@ class KeyboardService:
                 self._proxy_x2 = 0
         
         if pyray.is_key_down(pyray.KEY_UP):
-            dy = -1
+            self._proxy_y1 += 1
+            if self._proxy_y1 == 5:
+                if self._location > 450:
+                    dy = -1
+                self._proxy_y1 = 0
+           
         
         if pyray.is_key_down(pyray.KEY_DOWN):
-            if self._location < 550:
-                dy = 1
-
+            self._proxy_y2 += 1
+            if self._proxy_y2 == 5:
+                if self._location < 570:
+                    dy = 1
+                self._proxy_y2 = 0
+        
         direction = Point(dx, dy)
         direction = direction.scale(self._cell_size)
         
