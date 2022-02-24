@@ -36,6 +36,7 @@ root (project root folder) +-- greed (source code for game) +-- data (data files
 ## Authors
 Marcus Ayodeji Ojo-Osasere
 Julie Antezana
+Rune Larsen
 
 class Director:
     This class is responsible for controlling the game
