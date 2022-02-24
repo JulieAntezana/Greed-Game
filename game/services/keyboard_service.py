@@ -49,7 +49,7 @@ class KeyboardService:
             dy = -1
         
         if pyray.is_key_down(pyray.KEY_DOWN):
-            while self._location < 550:
+            if self._location < 550:
                 dy = 1
 
         direction = Point(dx, dy)

@@ -45,8 +45,8 @@ class Director:
             cast (Cast): The cast of actors.
         """
         robot = cast.get_first_actor("robots")
-        position = robot.get_position()
-        self._keyboard_service.set_bottom()
+        position = robot.get_position().get_y()
+        self._keyboard_service.set_bottom(position)
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)        
 
