@@ -22,7 +22,6 @@ FONT_SIZE = 20
 COLS = 60
 ROWS = 40
 CAPTION = "Greed"
-#DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 3500
 score = 0
@@ -42,7 +41,7 @@ def main():
     banner.set_id("banner")
     cast.add_actor("banners", banner)
     
-    # create the robot
+    # create the player (robot)
     x = int(MAX_X / 2)
     y = int(MAX_Y - 30)
     position = Point(x, y)
@@ -56,39 +55,41 @@ def main():
     cast.add_actor("robots", robot)
     
     # create the artifacts
-    # with open(DATA_PATH) as file:
-    #     data = file.read()
-    #     messages = data.splitlines()
+    for n in range(DEFAULT_ARTIFACTS):                
+        char = [79] * 10 + [42] * 5 + [126] * 2 + [43] * 2
+        rand = random.choice(char)
+        text = rand
 
-    for n in range(DEFAULT_ARTIFACTS):
-        char = [79, 42]
-        rand = random.randint(0,1)
-        text = char[rand]
-        
-        #message = messages[n]
-
+        #set the x (horizontal) position of the artifact
         x = random.randint(1, COLS - 1)
-        #settingy position from negative allows artifacts to display before coming into view
-        y = random.randint(-10000, 1)
+        #setting y position from negative allows artifacts to display before coming into view
+        y = random.randint(-5000, 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
+        # define the colors for the artifacts
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
         
+        # set other attributes for the artifacts
         artifact = Artifact()
         artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
-        #artifact.set_message(message)
-        if rand == 1:
+        
+        if rand == 42:   
             artifact.set_id("add")
+        elif rand == 43:  #3. add a new elif condition for new item on the list add +1, i.e. rand == 1, change to rand == 2
+            artifact.set_id("bonus")  # choose a name to identify the bonus character
+        elif rand == 126:
+            artifact.set_id("snake")
         else:
             artifact.set_id("remove")
         
+        # add artifacts to the screen
         cast.add_actor("artifacts", artifact)
     
     

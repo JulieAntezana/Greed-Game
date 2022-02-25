@@ -69,10 +69,16 @@ class Director:
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
                 if artifact.get_id() == "add":
-                    self.score.add_score()
+                    self.score.add_score(1)
                     artifact.set_position(Point(max_x, max_y))
+                elif artifact.get_id() == "bonus": # 4. add new elif with name of new character
+                    self.score.add_score(5) # 5. add new score points
+                    artifact.set_position(Point(max_x, max_y)) # 6. add character removal
+                elif artifact.get_id() == "snake":
+                    self.score.remove_score(5)
+                    artifact.set_position(Point(max_x, max_y)) 
                 else:
-                    self.score.remove_score()
+                    self.score.remove_score(1)
                     artifact.set_position(Point(max_x, max_y))
         
     def _do_outputs(self, cast):

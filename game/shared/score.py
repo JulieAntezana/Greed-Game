@@ -12,11 +12,11 @@ class Score:
         
         self._score = 0
         
-    def add_score(self): 
-        self._score += 1
+    def add_score(self, score): 
+        self._score += score
         
-    def remove_score(self): 
-        self._score -= 1
+    def remove_score(self, score): 
+        self._score -= score
         
     def get_score(self):
         return self._score
