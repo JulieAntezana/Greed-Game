@@ -51,7 +51,7 @@ class KeyboardService:
             self._proxy_y1 += 1
             if self._proxy_y1 == 5:
                 if self._location > 450:
-                    dy = -1
+                    dy = 0
                 self._proxy_y1 = 0
            
         
@@ -59,7 +59,7 @@ class KeyboardService:
             self._proxy_y2 += 1
             if self._proxy_y2 == 5:
                 if self._location < 570:
-                    dy = 1
+                    dy = 0
                 self._proxy_y2 = 0
         
         direction = Point(dx, dy)
