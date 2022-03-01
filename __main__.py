@@ -63,7 +63,7 @@ def main():
         #set the x (horizontal) position of the artifact
         x = random.randint(1, COLS - 1)
         #setting y position from negative allows artifacts to display before coming into view
-        y = random.randint(-2500, 1)
+        y = random.randint(-2000, 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
@@ -80,13 +80,13 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         
-        if rand == 42:   # ascii code for (*)
+        if rand == 42:   
             artifact.set_id("add")
-        elif rand == 43:  # ascii code for (+)
-            artifact.set_id("bonus")  
-        elif rand == 126:  # ascii code for (~)
+        elif rand == 43:  #3. add a new elif condition for new item on the list add +1, i.e. rand == 1, change to rand == 2
+            artifact.set_id("bonus")  # choose a name to identify the bonus character
+        elif rand == 126:
             artifact.set_id("snake")
-        else:  # ascii code for (O)
+        else:
             artifact.set_id("remove")
         
         # add artifacts to the screen
