@@ -80,13 +80,13 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         
-        if rand == 42:   
+        if rand == 42:   # ascii code for (*)
             artifact.set_id("add")
-        elif rand == 43:  #3. add a new elif condition for new item on the list add +1, i.e. rand == 1, change to rand == 2
-            artifact.set_id("bonus")  # choose a name to identify the bonus character
-        elif rand == 126:
+        elif rand == 43:  # ascii code for (+)
+            artifact.set_id("bonus")  
+        elif rand == 126:  # ascii code for (~)
             artifact.set_id("snake")
-        else:
+        else:  # ascii code for (O)
             artifact.set_id("remove")
         
         # add artifacts to the screen

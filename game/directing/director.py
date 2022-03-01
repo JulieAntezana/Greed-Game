@@ -51,7 +51,7 @@ class Director:
         robot.set_velocity(velocity)        
 
     def _do_updates(self, cast):
-        """Updates the robot's position and resolves any collisions with artifacts.
+        """Updates the robot's position and resolves any collisions with artifacts. 
         
         Args:
             cast (Cast): The cast of actors.
@@ -59,9 +59,6 @@ class Director:
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
-
-
-        banner.set_text("Score: " + str(self.score.get_score()))
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
@@ -71,9 +68,9 @@ class Director:
                 if artifact.get_id() == "add":
                     self.score.add_score(1)
                     artifact.set_position(Point(max_x, max_y))
-                elif artifact.get_id() == "bonus": # 4. add new elif with name of new character
-                    self.score.add_score(5) # 5. add new score points
-                    artifact.set_position(Point(max_x, max_y)) # 6. add character removal
+                elif artifact.get_id() == "bonus": 
+                    self.score.add_score(5) 
+                    artifact.set_position(Point(max_x, max_y))
                 elif artifact.get_id() == "snake":
                     self.score.remove_score(5)
                     artifact.set_position(Point(max_x, max_y)) 
