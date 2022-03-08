@@ -23,11 +23,7 @@ COLS = 60
 ROWS = 40
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
-<<<<<<< HEAD
 DEFAULT_ARTIFACTS = 500
-=======
-DEFAULT_ARTIFACTS = 900
->>>>>>> e1d5f46f1949383e378a3ae444390236c03ceda5
 score = 0
 
 
@@ -67,11 +63,7 @@ def main():
         #set the x (horizontal) position of the artifact
         x = random.randint(1, COLS - 1)
         #setting y position from negative allows artifacts to display before coming into view
-<<<<<<< HEAD
         y = random.randint(-500, 1)
-=======
-        y = random.randint(-900, 1)
->>>>>>> e1d5f46f1949383e378a3ae444390236c03ceda5
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
