@@ -43,7 +43,7 @@ def main():
     
     # create the player (robot)
     x = int(MAX_X / 2)
-    y = int(MAX_Y - 30)
+    y = int(MAX_Y - 50)
     position = Point(x, y)
 
     robot = Actor()
@@ -80,13 +80,13 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         
-        if rand == 42:   # ascii code for (*)
+        if rand == 42:   
             artifact.set_id("add")
-        elif rand == 43:  # ascii code for (+)
-            artifact.set_id("bonus")  
-        elif rand == 126:  # ascii code for (~)
+        elif rand == 43:  #3. add a new elif condition for new item on the list add +1, i.e. rand == 1, change to rand == 2
+            artifact.set_id("bonus")  # choose a name to identify the bonus character
+        elif rand == 126:
             artifact.set_id("snake")
-        else:  # ascii code for (O)
+        else:
             artifact.set_id("remove")
         
         # add artifacts to the screen

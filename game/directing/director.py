@@ -60,6 +60,9 @@ class Director:
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
+
+
+        banner.set_text("Score: " + str(self.score.get_score()))
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
