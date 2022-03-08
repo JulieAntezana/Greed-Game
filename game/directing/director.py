@@ -1,4 +1,5 @@
 from turtle import pos
+from game.casting.actor import Actor
 from game.shared.score import Score
 from game.shared.point import Point
 
@@ -62,6 +63,7 @@ class Director:
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
+        banner.set_text("Score: " + str(self.score.get_score()))
         
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
@@ -77,6 +79,10 @@ class Director:
                 else:
                     self.score.remove_score(1)
                     artifact.set_position(Point(max_x, max_y))
+            
+                # if artifact.get_position() < max_y:
+                #     self._artifact.remove(artifact)
+
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
