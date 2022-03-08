@@ -23,7 +23,7 @@ COLS = 60
 ROWS = 40
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 1500
+DEFAULT_ARTIFACTS = 900
 score = 0
 
 
@@ -43,7 +43,7 @@ def main():
     
     # create the player (robot)
     x = int(MAX_X / 2)
-    y = int(MAX_Y - 30)
+    y = int(MAX_Y - 50)
     position = Point(x, y)
 
     robot = Actor()
@@ -63,7 +63,7 @@ def main():
         #set the x (horizontal) position of the artifact
         x = random.randint(1, COLS - 1)
         #setting y position from negative allows artifacts to display before coming into view
-        y = random.randint(-2000, 1)
+        y = random.randint(-900, 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
